@@ -2,15 +2,15 @@
 import PropTypes from 'prop-types';
 
 // Styles
-import { Status, Img, Name } from './Friends.styled';
+import { Wrapper, Status, Img, Name } from './FriendListItem.styled';
 
 export const FriendListItem = ({ friend: { avatar, name, isOnline } }) => {
   return (
-    <>
+    <Wrapper>
       <Status isOnline={isOnline}></Status>
       <Img src={avatar} alt={name} width="48" />
       <Name>{name}</Name>
-    </>
+    </Wrapper>
   );
 };
 
@@ -19,5 +19,5 @@ FriendListItem.propTypes = {
     avatar: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     isOnline: PropTypes.bool.isRequired,
-  }),
+  }).isRequired,
 };

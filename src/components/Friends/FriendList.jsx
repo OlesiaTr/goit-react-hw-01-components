@@ -2,19 +2,19 @@
 import PropTypes from 'prop-types';
 
 //Components
-import { FriendListItem } from './FriendListItem';
+import { FriendListItem } from '../FriendListItem';
 
 // Styles
-import { List, Item } from './Friends.styled';
+import { List } from './Friends.styled';
 
 export const FriendList = ({ friends }) => {
   return (
     <List>
-      {[...friends].map(friend => {
+      {friends.map(friend => {
         return (
-          <Item key={friend.id}>
+          <li key={friend.id}>
             <FriendListItem friend={friend} />
-          </Item>
+          </li>
         );
       })}
     </List>
@@ -25,6 +25,6 @@ FriendList.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-    })
+    }).isRequired
   ).isRequired,
 };
